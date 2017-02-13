@@ -1,3 +1,6 @@
+![alt banner](https://github.com/aelbuni/Droply/blob/master/samples/banner.png)
+![alt tag](https://github.com/aelbuni/Droply/blob/master/samples/droply-banner.jpg)
+
 #JQuery File Uploader
 JQuery responsive chunk uploader plugin, that enables you to drag and drop files, including ajax upload and progress bar.
 
@@ -40,6 +43,10 @@ This is the simple html markup.
 <div id="company-files"></div>
 ````
 Even if you test all this in different browsers I recommend to add some kind of link to a basic uploader, this is still a new feature on several platforms.
+
+## Look and feel
+![alt tag](https://github.com/aelbuni/Droply/blob/master/samples/sample-usage-gallery-uploader.jpg)
+![alt tag](https://github.com/aelbuni/Droply/blob/master/samples/screenshot.jpg)
 
 ##Changelog
 
@@ -85,12 +92,12 @@ targetOutput: Define where the plugin log should be printed
 - Added 'dragDrop' option to allow using regular upload button instead of the dragDrop featured box.
 - Filename format option in PHP file
 
-###Update version 1.5.6: (Nov 9th, 2014)
+###Update version 1.5.6:
 - Added loading extra effect to indicate that the image still processing
 - Added info-icon button for mobile users, so they can check if there was any error retrieved from the server.
 - Enhance plugin responsivity for mobile and tablet use
 
-###Update version 1.6.0: (Sep 15th, 2015)
+###Update version 1.6.0:
 - Added two new themes (Simplex, and super-simplex)
 - Integrate the themes and successfully assured its responsiveness
 - Embed all of the changes inside "style.css"

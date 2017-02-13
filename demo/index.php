@@ -104,9 +104,9 @@
 			
 				<div>
 					<div class="droply-docs">
-					<a href="docs/">Documentation</a>
+					<a target="_blank" href="http://www.itechflare.com/droply/docs/">Documentation</a>
 					</div>
-					<div class="price"> <a href="http://codecanyon.net/item/droplyjs-php-minimalist-digital-file-uploader/15249902?ref=mindsquare">Buy 8$</a></div>
+					<div class="price"> <a target="_blank" href="https://www.itechflare.com">iTechFlare</a></div>
 				</div>
 				<img class="plugin-logo" src="images/logo.png"><br/><br/>
 
