@@ -4,16 +4,18 @@
 #JQuery File Uploader
 JQuery responsive chunk uploader plugin, that enables you to drag and drop files, including ajax upload and progress bar.
 
+## Developed with Love :star::heart::star:
+
 ### Features
-1- Responsive multi-file uploader
-2- Easily filter the file type allowed
-3- Server side aware jQuery plugin
-4- CSS3 smooth and modem effects
-5- More than 15 different options for flexibility
-6- Progress bar, preview file support
-7- Can be embedded inside forms. Can generate dynamic inputs with your desired upload-id values.
-8- Drag n drop feature, plus many more
-9- Support deletion
+- Responsive multi-file uploader
+- Easily filter the file type allowed
+- Server side aware jQuery plugin
+- CSS3 smooth and modem effects
+- More than 15 different options for flexibility
+- Progress bar, preview file support
+- Can be embedded inside forms. Can generate dynamic inputs with your desired upload-id values.
+- Drag n drop feature, plus many more
+- Support deletion
 
 #HOW CAN DROPLY FIT INTO YOUR PHP PROJECT ?
 
