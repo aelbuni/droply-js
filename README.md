@@ -1,5 +1,5 @@
-[<div style="text-align:center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/banner.png"></div>](https://www.itechflare.com/droply/)
-[<div style="text-align:center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/droply-banner.jpg"></div>](https://www.itechflare.com/droply/)
+[<p align="center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/banner.png"></p>](https://www.itechflare.com/droply/)
+[<p align="center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/droply-banner.jpg"></p>](https://www.itechflare.com/droply/)
 
 #( JQuery / Javascript ) Multi File Uploader
 Droply is a responsive jQuery based plugin, that simplifies the developers task to setup a multi/single file uploader component. It is highly configurable and easy to install. This plugin comes with a configurable server side PHP script that should be clear enough for developers to customize. It is important to know that there is a list of permitted file (MIME) types, which can be configured conjuctively on both server/client side to filter out any type of harmful or undesired file types.
