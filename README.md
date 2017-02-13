@@ -6,6 +6,12 @@ JQuery responsive chunk uploader plugin, that enables you to drag and drop files
 
 ## Developed with Love :star::heart::star:
 
+## Documentation :fist:
+Detailed Documentation: http://www.itechflare.com/droply/docs/
+
+## Demo :sparkles:
+Droply in Action: http://www.itechflare.com/droply/
+
 ### Features
 - Responsive multi-file uploader
 - Easily filter the file type allowed
@@ -22,7 +28,7 @@ JQuery responsive chunk uploader plugin, that enables you to drag and drop files
 - Upload the wrong file? Droply can delete what your mistaken file.
 - Limit your users to a specific file type, size limit, number of files, image dimensions, or write your own custom validator.
 
-#HOW CAN DROPLY FIT INTO YOUR PHP PROJECT ?
+## How can Droply fit into your PHP Project ?
 
 Droply provides a simple backend PHP processing class that enable you to integrate this plugin to any PHP framework easily.
 
@@ -32,11 +38,6 @@ Basic Javascript/Jquery knowledge is necesary to use this plugin: how to set par
 
 Dual licensed under the MIT and GPL licenses.
 Created by Abdulrhman Elbuni. [Contact Me](mailto:developer@itechflare.com) for more info or anything you want :)
-
-##Demo
-Droply in Action: http://www.itechflare.com/droply/
-
-Detailed Documentation: http://www.itechflare.com/droply/docs/
 
 ##API
 ````javascript
