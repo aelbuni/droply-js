@@ -1,8 +1,8 @@
 <?php
 /*
-* jQuery Droply Plugin; v2017FEB15
+* jQuery droply Plugin; v2017FEB12
 * https://www.itechflare.com/
-* Copyright (c) 2015-2017 iTechFlare; Licensed: GPL
+* Copyright (c) 2015-2017 iTechFlare; Licensed: GPL + MIT
 * Version : v1.7.1
 * Developer: (mindsquare)
 */

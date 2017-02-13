@@ -1,12 +1,11 @@
 <?php
 /*
-* jQuery droply Plugin; v2015SEP15
-* http://www.itechflare.com/
-* Copyright (c) 2015-2016 iTechFlare; Licensed: Commercial
+* jQuery droply Plugin; v2017FEB12
+* https://www.itechflare.com/
+* Copyright (c) 2015-2017 iTechFlare; Licensed: GPL + MIT
 * Version : v1.7.1
 * Developer: (mindsquare)
 */
-
 
 class Droply_Processor
 {
