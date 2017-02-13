@@ -58,11 +58,11 @@ Even if you test all this in different browsers I recommend to add some kind of 
 
 ## Empowering 5 stars plugins :star::star::star::star::star:
 
-[<img src="https://www.itechflare.com/main/wp-content/uploads/2017/02/get-wordpress-version.jpg">](https://codecanyon.net/item/filetrip-easily-upload-to-dropbox-google-drive-ftp-wordpress/11267642?ref=mindsquare)
-
 [<img src="https://0.s3.envato.com/files/221099756/banner.png">](https://codecanyon.net/item/filetrip-easily-upload-to-dropbox-google-drive-ftp-wordpress/11267642?ref=mindsquare)
 [<img src="https://image-cc.s3.envato.com/files/168624779/banner.png" width="300">](https://codecanyon.net/item/arfaly-gold-wordpress-upload-approve-share-with-no-limit/14582572?ref=mindsquare)
 [<img src="https://image-cc.s3.envato.com/files/152834216/arfaly-press-banner.png" width="300">](https://codecanyon.net/item/arfaly-press-frontend-wordpress-multimedia-file-uploader/11164660?ref=mindsquare)
+
+[<img src="https://www.itechflare.com/main/wp-content/uploads/2017/02/get-wordpress-version.jpg">](https://codecanyon.net/item/filetrip-easily-upload-to-dropbox-google-drive-ftp-wordpress/11267642?ref=mindsquare)
 
 ##Changelog
 
