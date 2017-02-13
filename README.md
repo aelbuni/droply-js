@@ -1,7 +1,7 @@
 ![alt banner](https://github.com/aelbuni/Droply/blob/master/samples/banner.png)
 ![alt tag](https://github.com/aelbuni/Droply/blob/master/samples/droply-banner.jpg)
 
-#JQuery File Uploader
+#( JQuery / Javascript ) Multi File Uploader
 JQuery responsive chunk uploader plugin, that enables you to drag and drop files, including ajax upload and progress bar.
 
 ## Developed with Love :star::heart::star:
@@ -14,8 +14,13 @@ JQuery responsive chunk uploader plugin, that enables you to drag and drop files
 - More than 15 different options for flexibility
 - Progress bar, preview file support
 - Can be embedded inside forms. Can generate dynamic inputs with your desired upload-id values.
-- Drag n drop feature, plus many more
+- Drag and drop files (and even folders in Chrome and Opera) straight from your desktop.
 - Support deletion
+- Droply has an integrated friendly mobile user interface, which allow users to upload files from their mobiles. Work beautifully for:
+  - iOS
+  - Android
+- Upload the wrong file? Droply can delete what your mistaken file.
+- Limit your users to a specific file type, size limit, number of files, image dimensions, or write your own custom validator.
 
 #HOW CAN DROPLY FIT INTO YOUR PHP PROJECT ?
 
