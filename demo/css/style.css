@@ -1,0 +1,1736 @@
+/*
+* jQuery Form Plugin; v20141205
+* http://www.itechflare.com/
+* Copyright (c) 2016 iTechFlare; Licensed: Commercial
+* Version : v2.8
+* Developer: Abdulrhman Elbuni (mindsquare)
+*/
+
+/*==================== Droply =====================*/
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@font-face {
+	font-family: 'droply';
+	src:url('../fonts/icomoon.eot?l6twan');
+	src:url('../fonts/icomoon.eot?#iefixl6twan') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?l6twan') format('woff'),
+		url('../fonts/icomoon.ttf?l6twan') format('truetype'),
+		url('../fonts/icomoon.svg?l6twan#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.droply-icon {
+	font-family: 'droply' !important;
+	font-size:20px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-decoration:none;
+	display: inline-block;
+	text-decoration: none;
+	color:white;
+	-webkit-transition: all 300ms; /* For Safari 3.1 to 6.0 */
+    transition: all 300ms;
+	
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.droply-icon-times:before {
+	content: "\e605";
+}
+.droply-icon-tick:before {
+	content: "\e600";
+}
+.droply-icon-plus:before {
+	content: "\e606";
+}
+.droply-icon-minus:before {
+	content: "\e609";
+}
+.droply-icon-th-small:before {
+	content: "\e60a";
+}
+.droply-icon-th-menu:before {
+	content: "\e60b";
+}
+.droply-icon-th-list:before {
+	content: "\e60c";
+}
+.droply-icon-image:before {
+	content: "\e601";
+}
+.droply-icon-star:before {
+	content: "\e60d";
+}
+.droply-icon-delete:before {
+	content: "\e60e";
+}
+.droply-icon-delete-outline:before {
+	content: "\e60f";
+}
+.droply-icon-cloud-storage:before {
+	content: "\e610";
+}
+.droply-icon-cancel:before {
+	content: "\e611";
+}
+.droply-icon-attachment:before {
+	content: "\e612";
+}
+.droply-icon-info:before {
+	content: "\e613";
+}
+.droply-icon-group:before {
+	content: "\e602";
+}
+.droply-icon-video:before {
+	content: "\e614";
+}
+.droply-icon-camera:before {
+	content: "\e615";
+}
+.droply-icon-upload:before {
+	content: "\e616";
+}
+.droply-icon-info-large:before {
+	content: "\e617";
+}
+.droply-icon-download:before {
+	content: "\e603";
+}
+.droply-icon-notes:before {
+	content: "\e618";
+}
+.droply-icon-media-play:before {
+	content: "\e619";
+}
+.droply-icon-image2:before {
+	content: "\e604";
+}
+.droply-icon-camera2:before {
+	content: "\e61a";
+}
+.droply-icon-file:before {
+	content: "\e61b";
+}
+.droply-icon-disk:before {
+	content: "\e61c";
+}
+.droply-icon-spinner:before {
+	content: "\e61d";
+}
+.droply-icon-remove:before {
+	content: "\e61e";
+}
+.droply-icon-earth:before {
+	content: "\e607";
+}
+.droply-icon-checkmark:before {
+	content: "\e608";
+}
+.droply-icon-star2:before {
+	content: "\e61f";
+}
+.droply-icon-sound:before {
+	content: "\e620";
+}
+.droply-icon-video2:before {
+	content: "\e621";
+}
+.droply-icon-camera3:before {
+	content: "\e622";
+}
+.droply-icon-mail:before {
+	content: "\e623";
+}
+.droply-icon-photo:before {
+	content: "\e624";
+}
+.droply-icon-note:before {
+	content: "\e625";
+}
+.droply-icon-music:before {
+	content: "\e626";
+}
+.droply-icon-wallet:before {
+	content: "\e627";
+}
+
+.droply-meter { 
+	width:85%;
+	box-sizing:initial;
+	-webkit-box-sizing:initial;
+	height: 9px;  /* Can be anything */
+	position: relative;
+	margin: 4px 0 4px 0; /* Just for demo spacing */
+	position: relative;
+	background: #E7E7E7;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	padding: 10px;
+	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+.droply-meter > span {
+	display: block;
+	height: 100%;
+	float:left;
+	   -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+		   -moz-border-radius-topright: 8px;
+		-moz-border-radius-bottomright: 8px;
+			   border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		-webkit-border-top-left-radius: 20px;
+	 -webkit-border-bottom-left-radius: 20px;
+			-moz-border-radius-topleft: 20px;
+		 -moz-border-radius-bottomleft: 20px;
+				border-top-left-radius: 20px;
+			 border-bottom-left-radius: 20px;
+	background-color: rgb(43,194,83);
+	background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, rgb(43,194,83)),
+	  color-stop(1, rgb(84,240,84))
+	 );
+	background-image: -moz-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	-webkit-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	-moz-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+}
+.droply-meter > span:after, .animate > span > span {
+	content: "";
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background-image: 
+	   -webkit-gradient(linear, 0 0, 100% 100%, 
+		  color-stop(.25, rgba(255, 255, 255, .2)), 
+		  color-stop(.25, transparent), color-stop(.5, transparent), 
+		  color-stop(.5, rgba(255, 255, 255, .2)), 
+		  color-stop(.75, rgba(255, 255, 255, .2)), 
+		  color-stop(.75, transparent), to(transparent)
+	   );
+	background-image: 
+		-moz-linear-gradient(
+		  -45deg, 
+		  rgba(255, 255, 255, .2) 25%, 
+		  transparent 25%, 
+		  transparent 50%, 
+		  rgba(255, 255, 255, .2) 50%, 
+		  rgba(255, 255, 255, .2) 75%, 
+		  transparent 75%, 
+		  transparent
+	   );
+	z-index: 1;
+	-webkit-background-size: 50px 50px;
+	-moz-background-size: 50px 50px;
+	-webkit-animation: move 2s linear infinite;
+	   -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+		   -moz-border-radius-topright: 8px;
+		-moz-border-radius-bottomright: 8px;
+			   border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		-webkit-border-top-left-radius: 20px;
+	 -webkit-border-bottom-left-radius: 20px;
+			-moz-border-radius-topleft: 20px;
+		 -moz-border-radius-bottomleft: 20px;
+				border-top-left-radius: 20px;
+			 border-bottom-left-radius: 20px;
+	overflow: hidden;
+}
+
+.animate > span:after {
+	display: none;
+}
+
+@-webkit-keyframes move {
+	0% {
+	   background-position: 0 0;
+	}
+	100% {
+	   background-position: 50px 50px;
+	}
+}
+
+.orange > span {
+	background-color: #f1a165;
+	background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+	background-image: -webkit-linear-gradient(#f1a165, #f36d0a); 
+}
+
+.red > span {
+	background-color: #f0a3a3;
+	background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
+	background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
+}
+
+.droply-nostripes > span > span, .droply-nostripes > span:after {
+	-webkit-animation: none;
+	background-image: none;
+}
+
+/* ======================= droply Transition Section =======================
+============================================================================ */
+
+@-webkit-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: translateX(30px);
+	}
+
+	80% {
+		-webkit-transform: translateX(-10px);
+	}
+
+	100% {
+		-webkit-transform: translateX(0);
+	}
+}
+
+@-moz-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(-2000px);
+	}
+
+	60% {
+		opacity: 1;
+		-moz-transform: translateX(30px);
+	}
+
+	80% {
+		-moz-transform: translateX(-10px);
+	}
+
+	100% {
+		-moz-transform: translateX(0);
+	}
+}
+
+@-o-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-o-transform: translateX(-2000px);
+	}
+
+	60% {
+		opacity: 1;
+		-o-transform: translateX(30px);
+	}
+
+	80% {
+		-o-transform: translateX(-10px);
+	}
+
+	100% {
+		-o-transform: translateX(0);
+	}
+}
+
+@keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-2000px);
+	}
+
+	60% {
+		opacity: 1;
+		transform: translateX(30px);
+	}
+
+	80% {
+		transform: translateX(-10px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+/*===========Bounce right===========*/
+@-webkit-keyframes bounceOutRight {
+	0% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+
+	20% {
+		-webkit-transform: translateX(70px);
+	}
+
+	40% {
+		-webkit-transform: translateX(-100px);
+	}
+
+	100% {
+		-webkit-transform: translateX(2000px);
+		visibility:hidden;
+	}
+}
+
+@-moz-keyframes bounceOutRight {
+	0% {
+		opacity: 1;
+		-moz-transform: translateX(0);
+	}
+
+	20% {
+		-moz-transform: translateX(70px);
+	}
+
+	40% {
+		-moz-transform: translateX(-100px);
+	}
+
+	100% {
+		-moz-transform: translateX(2000px);
+		visibility:hidden;
+	}
+}
+
+@-o-keyframes bounceOutRight {
+	0% {
+		opacity: 1;
+		-o-transform: translateX(0);
+	}
+
+	20% {
+		-o-transform: translateX(70px);
+	}
+
+	40% {
+		-o-transform: translateX(-100px);
+	}
+
+	100% {
+		-o-transform: translateX(2000px);
+		visibility:hidden;
+	}
+}
+
+@keyframes bounceOutRight {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	20% {
+		transform: translateX(70px);
+	}
+
+	40% {
+		transform: translateX(-100px);
+	}
+
+	100% {
+		transform: translateX(2000px);
+		visibility:hidden;
+	}
+}
+/*============FlipNotification===========*/
+@-webkit-keyframes flipNotificationError {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-webkit-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(207, 7, 7);
+		-webkit-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@-moz-keyframes flipNotificationError {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-moz-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(207, 7, 7);
+		-moz-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@-o-keyframes flipNotificationError {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-o-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(207, 7, 7);
+		-o-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@keyframes flipNotificationError {
+	0% {
+		opacity: 1;
+		background-color:white;
+		transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(207, 7, 7);
+		transform: rotateY(360deg) scale(1);
+	}
+}
+@-webkit-keyframes flipNotificationSuccess {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-webkit-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(56, 175, 0);
+		-webkit-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@-moz-keyframes flipNotificationSuccess {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-moz-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(56, 175, 0);
+		-moz-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@-o-keyframes flipNotificationSuccess {
+	0% {
+		opacity: 1;
+		background-color:white;
+		-o-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(56, 175, 0);
+		-o-transform: rotateY(360deg) scale(1);
+	}
+}
+
+@keyframes flipNotificationSuccess {
+	0% {
+		opacity: 1;
+		background-color:white;
+		transform: rotateY(90deg) scale(0.4);
+		-webkit-transform: rotateY(90deg) scale(0.4);
+	}
+	100% {
+		opacity: 1;
+		background-color:rgb(56, 175, 0);
+		transform: rotateY(360deg) scale(1);
+		-webkit-transform: rotateY(360deg) scale(1);
+	}
+}
+
+.droply-animated.bounceInLeft {
+	display:block;
+	-webkit-animation-name: bounceInLeft;
+	-moz-animation-name: bounceInLeft;
+	-o-animation-name: bounceInLeft;
+	animation-name: bounceInLeft;
+}
+
+.droply-animated.bounceOutRight {
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: bounceOutRight;
+    -webkit-animation-duration: 600ms;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: forward;
+    animation-fill-mode: forwards; 
+	-o-animation-fill-mode: forwards;
+	-moz--animation-fill-mode: forwards; 
+	-webkit-animation-fill-mode: forwards; 
+    /* Standard syntax */
+    animation-name: bounceOutRight;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+.droply-animated.flipNotificationError {
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: flipNotificationError;
+    -webkit-animation-duration: 600ms;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: forward;
+    animation-fill-mode: forwards; 
+	-o-animation-fill-mode: forwards;
+	-moz--animation-fill-mode: forwards; 
+	-webkit-animation-fill-mode: forwards; 
+    /* Standard syntax */
+    animation-name: flipNotificationError;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+.droply-animated.flipNotificationSuccess
+{
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: flipNotificationSuccess;
+    -webkit-animation-duration: 600ms;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: forward;
+    animation-fill-mode: forwards; 
+	-o-animation-fill-mode: forwards;
+	-moz--animation-fill-mode: forwards; 
+	-webkit-animation-fill-mode: forwards; 
+    /* Standard syntax */
+    animation-name: flipNotificationSuccess;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+span.droply-loading
+{
+	-webkit-animation: droplyLoading 1s; /* Chrome, Safari, Opera */
+    animation: droplyLoading 1s;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+    color: black;
+    margin-top: 34px;
+}
+@-webkit-keyframes droplyLoading {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes droplyLoading {
+	0% {
+		-moz-transform: rotate(0deg);
+	}
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes droplyLoading {
+	0% {
+		-o-transform: rotate(0deg);
+	}
+	100% {
+		-o-transform: rotate(360deg);
+	}
+}
+
+@keyframes droplyLoading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* ======================= droply Default Theme =======================
+======================================================================= */
+
+div.droply-default-theme div.droply-form-container
+{
+margin-top:35px;
+}
+
+div.droply-form-container
+{
+  margin-bottom:15px !important;
+}
+
+span.droply-icon-plus
+{
+  color:black !important;
+}
+
+div.droply-default-theme div.droply-list-icon
+{
+	max-width:20%;
+	max-height: 60px;
+	transition: all 500ms;
+}
+
+div.droply-default-theme div.droply-list-menu
+{
+	-webkit-transition: all 900ms; /* For Safari 3.1 to 6.0 */
+    transition: all 900ms;
+
+	visibility:hidden;
+	opacity:0;
+}
+
+div.droply-default-theme div.droply-list-menu ul
+{
+	z-index:9999999;
+	float:right;
+	margin: 0;
+	padding: 5px !important;
+	list-style-type: none;
+	text-align: center;
+}
+div.droply-default-theme div.droply-list-menu ul li
+{
+	display: inline;
+	padding-right: 20px;
+}
+
+div.droply-default-theme div.droply-multiple-upload
+{
+	text-align:center;
+}
+
+div.droply-default-theme div.progress-container
+{
+	width:70%;
+}
+
+div.droply-default-theme span.massLeft-shift
+{
+	padding-left:10px;
+}
+
+div.droply-default-theme div.droply-list-div
+{
+	overflow: hidden;
+	border-radius:7px;
+	min-height: 75px;
+	padding:10px;
+	margin-bottom:10px;
+	background-color:rgb(66, 153, 221);
+	-webkit-animation: bounceInLeft 600ms; /* Chrome, Safari, Opera */
+	-o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+	transition: all 500ms;
+}
+
+/* Trigger animation */
+div.droply-default-theme div.droply-list-div:hover  .droply-icon-photo
+{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	font-size:90px !important;
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	color:#000;
+}
+div.droply-default-theme div.droply-list-div:hover  .droply-icon-music
+{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	font-size:90px !important;
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	color:#000;
+}
+div.droply-default-theme div.droply-list-div:hover  .droply-icon-video2
+{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	font-size:90px !important;
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	color:#000;
+}
+
+div.droply-default-theme div.droply-list-div:hover  .droply-icon-wallet
+{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	font-size:90px !important;
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	color:#000;
+}
+
+div.droply-default-theme div.droply-list-div:hover  .droply-icon-file
+{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	font-size:90px !important;
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	color:#000;
+}
+
+div.droply-default-theme div.droply-list-div:hover
+{
+	background-color:rgb(1, 89, 158);
+}
+
+div.droply-default-theme div.droply-list-div:hover div.droply-list-menu
+{
+	visibility:visible;
+	opacity:1;
+	transform: rotateY( 180deg );
+	-webkit-transform: rotateY( 180deg );
+}
+
+div.droply-default-theme div.droply-oval
+{
+	-webkit-perspective: 1000;
+	border-style:solid;
+	border-color:rgb(32, 133, 212);
+	border-width:3px;
+	width:90px;
+	height:90px;
+	border-radius:50%;
+	float:left;
+	margin-right:5px;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.droply-default-theme div.notification-oval
+{
+	width:80px;
+	height:80px;
+	border-radius:50%;
+	text-align: center;
+    display: inline-block;
+}
+
+div.droply-multiple-upload a.droply-delete, a.droply-close, a.droply-preview, .info-icon
+{
+	cursor:pointer;
+}
+
+div.droply-multi-images:after
+{
+	content:".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+}
+
+div.droply-multi-images
+{
+	max-width:400px;
+    min-width:280px;
+	width:94%;
+	z-index:9999999;
+	padding: 5px;    
+    margin: 0 auto;
+	list-style-type: none;
+	text-align: center;
+	-o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+	transition: all 500ms;
+	-webkit-touch-callout: none;
+ }
+
+
+ul.droply-oval-list-info li
+{
+  padding:0 !important;
+}
+
+div.droply-default-theme ul.droply-oval-list-info
+{
+margin:0 !important;
+padding:0 !important;
+list-style-type: none;
+position: relative;
+top: 22px;
+}
+
+div.droply-default-theme span.droply-info-icon
+{
+position: relative;
+left: -51px;
+top: 57px;
+color: #FFF;
+transition:all .2s ease-in-out;
+}
+
+div.droply-default-theme span.droply-info-icon:hover {
+	transform:scale(1.5);
+	color:yellow;
+}
+
+div.droply-default-theme div.droply-pointer
+{
+border:solid 10px transparent;
+border-right-color:rgba(255,255,255,0.8);
+position:absolute;
+margin:-50px 0 0 -20px;
+}
+
+div.droply-default-theme div.droply-filename
+{
+  z-index: 5;
+  position: relative;
+  font-size: 9px;
+  font-family: "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+  color:#fff;
+  display: -ms-inline-flexbox; /* Fix for IE */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+}
+
+
+/* ======================= droply Global Theme =============================
+============================================================================ */
+
+/* ================ Info Box ===============
+============================================*/
+
+div.droply-info-box
+{
+display: none;
+position: absolute;
+left: 0;
+bottom: 0;
+width:200px;
+height:80px;
+z-index: 999999;
+}
+
+div.droply-info-p
+{
+background:rgba(255,255,255,0.8); 
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px; 
+width:100%; 
+height:80px;
+margin:0;
+}
+
+span.droply-info-close
+{
+	float:right;
+	position:relative;
+	color:black;
+	right: 4px;
+	top: 5px;
+}
+
+div.droply-info-internal-content
+{
+font-family: "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+font-size: 12px;
+padding: 10px;
+text-align: left;
+}
+/*=========================================*/
+
+div.droply-multiple-upload a.delete, a.close, a.preview, .info-icon
+{
+	cursor:pointer;
+}
+
+div.droply-multi-images:after
+{
+	content:".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+}
+
+img.droply-image-button
+{
+	-o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+	transition: all 500ms;
+	cursor: pointer;
+}
+
+img.droply-image-button:hover
+{
+	transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	-ms-transform:scale(1.2);
+}
+
+
+.droply-right
+{
+	float:right;
+}
+
+.droply-left
+{
+	float:left;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+p.droply-label
+{
+font-family: 'Lato', "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+font-size: 11px;
+margin: 0;
+text-align:center;
+}
+
+div.droply-filedrag input.droply-multi-file-input
+{
+  	cursor:pointer;
+    font-size: 0px;
+    pointer-events: none;
+}
+
+input.droply-multi-file-input
+{
+  pointer-events: none;
+}
+
+div.droply-box-label
+{
+  pointer-events: none;
+}
+
+.droply-filedrag
+{
+	cursor:pointer;
+	display:none;
+	font-family:  "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+	padding-top: -1px;
+	font-size: 28px;
+	max-width: 375px;
+	width:75% !important;
+	text-align: center;
+	margin: 0 auto;
+	color: #DADADA;
+	border: 9px dashed #D3D3D3;
+	border-radius: 7px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.droply-filedrag.hover
+{
+	color: gray !important;
+	border-color: #B1B1B1 !important;
+	border-style: solid !important;
+	box-shadow: inset 0 3px 4px #888 !important;
+}
+
+span.droply-showcase
+{
+	color: rgb(150, 155, 255);
+	font-size: 108px;
+}
+
+
+/* ======================= droply Simplex =======================
+================================================================= */
+
+div.theme-1 div.droply-list-icon
+{
+	max-width:20%;
+	max-height: 30px;
+	transition: all 500ms;
+}
+
+div.theme-1 div.droply-list-menu
+{
+	-webkit-transition: all 900ms; /* For Safari 3.1 to 6.0 */
+    transition: all 900ms;
+}
+
+div.theme-1 div.droply-list-menu ul
+{
+	z-index:9999999;
+	float:right;
+	margin: 0;
+	padding: 5px !important;
+	list-style-type: none;
+	text-align: center;
+}
+div.theme-1 div.droply-list-menu ul li
+{
+	display: inline;
+	padding-right: 0 !important;
+	padding-right: 0 !important;
+}
+
+div.theme-1 div.droply-multiple-upload
+{
+	text-align:center;
+}
+
+div.theme-1 div.progress-container
+{
+	width:50%;
+}
+
+div.theme-1 span.massLeft-shift
+{
+	padding-left:10px;
+}
+
+div.theme-1 div.droply-list-div
+{
+	overflow: hidden;
+	border-radius:7px;
+	max-height: 75px;
+	padding:10px;
+	background-color:white;
+	margin-bottom:10px;
+	-webkit-animation: bounceInLeft 600ms; /* Chrome, Safari, Opera */
+	-o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+	transition: all 500ms;
+}
+
+div.theme-1 .droply-icon
+{
+color:black;
+}
+
+/* Trigger animation */
+div.theme-1 div.droply-list-div:hover  .droply-icon-photo
+{
+	font-size:30px !important;
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+	color:#000;
+}
+
+div.theme-1 div.droply-list-div:hover  .droply-icon-music
+{
+	font-size:30px !important;
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+	color:#000;
+}
+div.theme-1 div.droply-list-div:hover  .droply-icon-video2
+{
+	font-size:30px !important;
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+	color:#000;
+}
+
+div.theme-1 div.droply-list-div:hover  .droply-icon-wallet
+{
+	font-size:30px !important;
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+	color:#000;
+}
+
+div.theme-1 div.droply-list-div:hover  .droply-icon-file
+{
+	font-size:30px !important;
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+	color:#000;
+}
+
+div.theme-1 div.droply-list-div:hover
+{
+	background-color: #E0DFDF;
+}
+
+div.theme-1 div.droply-oval
+{
+	-webkit-perspective: 1000;
+	border-style:solid;
+	border-color:white;
+	border-width:3px;
+	width:22px;
+	height:22px;
+	border-radius:50%;
+	float:right;
+	margin-right:5px;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.theme-1 div.notification-oval
+{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	text-align: center;
+    display: inline-block;
+}
+
+div.theme-1 span.droply-loading
+{
+	margin-top: 1px;
+}
+
+div.theme-1 .droply-icon-info-large
+{
+	font-size:22px;
+}
+
+div.theme-1 ul.droply-oval-list-info
+{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	position: relative;
+	top: -5px;
+	left: 5px;
+}
+
+div.theme-1 span.droply-info-icon
+{
+transition:all .2s ease-in-out;
+}
+
+div.theme-1 span.droply-info-icon:hover {
+	transform:scale(1.5);
+	color:yellow;
+}
+
+div.theme-1 div.droply-pointer
+{
+border:solid 10px transparent;
+border-right-color:rgba(255,255,255,0.8);
+position:absolute;
+margin:-50px 0 0 -20px;
+}
+
+div.theme-1 div.droply-filename
+{
+  z-index: 5;
+  position: relative;
+  font-size: 9px;
+  font-family: "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+  color:#000;
+  display: -ms-inline-flexbox; /* Fix for IE */
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.theme-1 div.droply-meter
+{
+padding: 4px !important;
+}
+
+/* ======================= droply Super Simple =======================
+================================================================= */
+
+div.theme-2 div.droply-list-icon
+{
+	max-width:20%;
+	max-height: 60px;
+	transition: all 500ms;
+}
+
+div.theme-2 .droply-icon
+{
+color:black;
+}
+
+div.theme-2 div.droply-meter
+{
+	padding: 0 !important;
+}
+
+div.theme-2 div.droply-list-menu
+{
+	-webkit-transition: all 900ms; /* For Safari 3.1 to 6.0 */
+    transition: all 900ms;
+}
+
+div.theme-2 div.droply-list-menu ul
+{
+	z-index:9999999;
+	float:right;
+	margin: 0;
+	padding: 5px !important;
+	list-style-type: none;
+	text-align: center;
+}
+div.theme-2 div.droply-list-menu ul li
+{
+	display: inline;
+	padding-right: 0 !important;
+	padding-right: 0 !important;
+}
+
+div.theme-2 div.droply-multiple-upload
+{
+	text-align:center;
+}
+
+div.theme-2 div.progress-container
+{
+	width:50%;
+}
+
+div.theme-2 span.massLeft-shift
+{
+	padding-left:10px;
+}
+
+div.theme-2 span.droply-loading
+{
+	margin-top: 1px;
+}
+
+div.theme-2 .droply-icon-info-large
+{
+	font-size:22px;
+}
+
+div.theme-2 div.droply-list-div
+{
+	overflow: hidden;
+	border-radius:7px;
+	max-height: 30px;
+	padding:10px;
+	margin-bottom:10px;
+	-webkit-animation: bounceInLeft 600ms; /* Chrome, Safari, Opera */
+	-o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+	transition: all 500ms;
+	background-color:#AB2727;
+}
+
+div.theme-2 .droply-icon
+{
+	color:white !important;
+}
+
+div.theme-2 div.droply-list-div:hover
+{
+}
+
+div.theme-2 div.droply-oval
+{
+	-webkit-perspective: 1000;
+	border-style:solid;
+	border-color:white;
+	border-width:2px;
+	width:22px;
+	height:22px;
+	border-radius:50%;
+	float:right;
+	margin-right:5px;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.theme-2 div.notification-oval
+{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	text-align: center;
+    display: inline-block;
+}
+
+div.theme-2 ul.droply-oval-list-info
+{
+margin:0;
+padding:0;
+list-style-type: none;
+position: relative;
+top: -5px;
+left: 5px;
+}
+
+div.theme-2 span.droply-info-icon
+{
+position: relative;
+left: -51px;
+top: 57px;
+color: #FFF;
+transition:all .2s ease-in-out;
+}
+
+div.theme-2 span.droply-info-icon:hover {
+	transform:scale(1.5);
+	color:yellow;
+}
+
+div.theme-2 div.droply-pointer
+{
+border:solid 10px transparent;
+border-right-color:rgba(255,255,255,0.8);
+position:absolute;
+margin:-50px 0 0 -20px;
+}
+
+div.theme-2 div.droply-filename
+{
+  z-index: 5;
+  position: relative;
+  font-size: 9px;
+  font-family: "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+  color:#fff;
+  display: -ms-inline-flexbox; /* Fix for IE */
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 16px;
+}
+
+div.theme-2 .orange > span {
+	background-color: white;
+	background-image:none !important;
+}
+
+div.theme-2 .red  > span {
+	background-color: red;
+	background-image:none !important;
+}
+
+div.theme-2 .white  > span {
+	background-color: white;
+	background-image:none !important;
+}
+
+div.theme-2  .droply-meter > span
+{
+    height: 50% !important;
+}
+
+div.theme-2 .droply-meter
+{
+	background-color:rgba(0,0,0,0);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+}
+
+/*================= New Info Box Form Section=====================*/
+
+/*================================================================*/
+
+.droply-delete, .droply-preview
+{
+  display:none;
+}
+
+span.droply-loading
+{
+  display:none;
+}
+    
+div.droply-upload-item-row
+{
+clear: left;
+padding-top: 15px;
+}
+
+input.droply-input[type='text'],
+textarea.droply-input
+{
+  padding: 0.375em !important; 
+  width: 100% !important; 
+  font-family: 'Lato';
+  font-size:12px;
+  padding: 12px !important;
+}
+
+a.droply-button{
+  color: #555;
+  border-color: #ccc;
+  background: #f7f7f7;
+  -webkit-box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+  box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+  vertical-align: top;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0;
+  padding: 0 10px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float:left;
+}
+
+/* ============= Responsiveness section =============== */
+@media (max-width: 500px) {
+
+    div.droply-list-div {
+		width: 54%;
+	}
+	
+	div.droply-multi-images
+	{
+		margin-left: 10px;
+	}
+	
+    .droply-filedrag
+    {
+      font-size:18px;
+    }
+    
+	div.droply-oval
+	{
+		width:70px;
+		height:70px;
+	}
+
+	div.notification-oval
+	{
+		width:60px;
+		height:60px;
+	}
+	
+	li.center-icon
+	{
+		font-size: 18px !important;
+	}
+
+	ul.droply-oval-list-info
+	{
+		top: 10px !important;
+	}
+	
+	span.droply-info-icon {
+		left: -14px;
+		top: 12px;
+	}
+	
+	div.droply-info-box
+	{
+		width:150px;
+		height:80px;
+	}
+	
+	span.droply-loading
+	{
+		margin-top: 25px;
+	}
+    
+    span.droply-showcase
+    {
+        font-size: 65px !important;
+    }
+    
+    div.droply-info-box
+	{
+		width:150px;
+		height:80px;
+	}
+    
+    div.droply-default-theme div.droply-list-div {
+      width: 45%;
+      min-width: 159px;
+	}
+	
+	div.droply-default-theme div.droply-multi-images
+	{
+		margin-left: 10px;
+	}
+    
+    div.droply-default-theme li.droply-tick-text
+    {
+          margin-top: -10px !important;
+    }
+	
+	div.droply-default-theme div.droply-oval
+	{
+		width:70px;
+		height:70px;
+	}
+
+	div.droply-default-theme div.notification-oval
+	{
+		width:60px;
+		height:60px;
+	}
+	
+	div.droply-default-theme li.center-icon
+	{
+		font-size: 18px !important;
+	}
+
+	div.droply-default-theme ul.droply-oval-list-info
+	{
+		top: 10px !important;
+	}
+	
+	div.droply-default-theme span.droply-info-icon {
+		left: -14px;
+		top: 12px;
+	}
+	
+	div.droply-default-theme span.droply-loading
+	{
+		margin-top: 25px;
+	}
+	
+	div.droply-default-theme .droply-filedrag
+	{
+      font-size:18px;
+    }
+    
+    div.droply-default-theme span.droply-ready
+	{
+		margin-top: 25px !important;
+	}
+    
+    	div.theme-1 div.droply-list-div {
+		width: 75%;
+		min-width:250px;
+	}
+	
+	div.theme-1 .droply-list-icon .icon
+	{
+		font-size:30px !important;
+	}
+	
+	div.theme-1 ul.droply-oval-list-info
+	{
+		left: 4px;
+		top: -5px !important;
+	}
+	
+	div.theme-1 div.droply-list-icon
+	{
+		margin-top: 7px;
+	}
+	
+	div.theme-1 div.progress-container
+	{
+		width: 35%;
+	}
+
+	div.theme-2 div.droply-list-div {
+		width: 75%;
+	}
+	
+	div.theme-2 div.droply-list-div {
+		width: 75%;
+		min-width:250px;
+	}
+	
+	div.theme-2 .droply-list-icon .droply-icon
+	{
+		font-size:30px !important;
+	}
+	
+	div.theme-2 ul.droply-oval-list-info
+	{
+      top: -5px !important;
+      left: 4px;
+	}
+	
+	div.theme-2 div.droply-list-icon
+	{
+		margin-top: 7px;
+	}
+}
+
+/* ============= Responsiveness section  ENd =============== */
+
+/* New fixes */
+ul.droply-oval-list-info li:before
+{
+  display: block !important;
+}
+
+div.droply-circular-dropbox
+{
+  border-radius:50% !important;
+  font-size:15px !important;
+  max-width:175px !important;
+  min-height: 168px;
+  padding: 0 !important;
+}
