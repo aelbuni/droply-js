@@ -2,7 +2,7 @@
 ![alt tag](https://github.com/aelbuni/Droply/blob/master/samples/droply-banner.jpg)
 
 #( JQuery / Javascript ) Multi File Uploader
-JQuery responsive chunk uploader plugin, that enables you to drag and drop files, including ajax upload and progress bar.
+Droply is a responsive jQuery based plugin, that simplifies the developers task to setup a multi/single file uploader component. It is highly configurable and easy to install. This plugin comes with a configurable server side PHP script that should be clear enough for developers to customize. It is important to know that there is a list of permitted file (MIME) types, which can be configured conjuctively on both server/client side to filter out any type of harmful or undesired file types.
 
 ## Developed with Love :star::heart::star:
 
