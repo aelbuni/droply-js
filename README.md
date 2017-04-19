@@ -59,7 +59,7 @@ $("#company-files").droply(
             backgroundColor:'',
             label:'Allowed file types are gif, jpg, png, avi, mp3, wav, mp4, doc, docx, pdf, txt, zip and rar',
             labelColor:'rgb(90, 90, 90)',
-            logoColor:'rgb(150, 155, 255)',     // Change the color of logo
+            logoColor:'rgb(150, 155, 255)',     // Change the color of the logo
             textColor:'#DADADA',                // Change the color of border line and text
             borderColor:'#DADADA',
             disablePostProgressAnimation: false,
@@ -67,7 +67,7 @@ $("#company-files").droply(
             action:'itech_droply_submission',   // Pass a custom JSON object to the server side along the files
             successfulUpload: droply.successfulUpload,  // Event handler for successful file upload
             failedUpload: droply.failedUpload,          // Event for unsuccessful file upload
-            fileDeleted: droply.fileDeleted             // File deleted even
+            fileDeleted: droply.fileDeleted             // Event triggers when file is deleted from the front-end
             dropBox:{
               title:'Drop files here', 
               height:100, 
