@@ -40,6 +40,44 @@ Created by Abdulrhman Elbuni.
 ##API
 ````javascript
 $("#company-files").droply(options);
+
+$("#company-files").droply(
+        {
+            chunkUpload: true,
+            limitNumberofFiles:10,              // Limit the number of total uploaded file per session
+            debug:false,                        // Enable/Disable debug for tracking error
+            targetOutput:'.output',             // Print the output of the debug into a specific target HTML element
+            allowedFileSize: 1024 * 1024 * 10, 
+            disableRemovingItems:true,          // Disable removing upload items from the list
+            delay:5000,                         // Define a hide delay of each upload element if it is set to be hidden
+            multi:true,                         // Enable multi-file select/upload
+            dragDrop:true,
+            theme: 'simplex',                   // You can select 3 different themes 'default', 'simplex' and 'super-simplex'
+            url: "processMultipleUploads.php",  // URL on where the files should be submitted
+            dataType: "json",                   // Define AJAX dataType
+            type: "post",                       // Define post type "GET/POST" (POST Recommended)
+            backgroundColor:'',
+            label:'Allowed file types are gif, jpg, png, avi, mp3, wav, mp4, doc, docx, pdf, txt, zip and rar',
+            labelColor:'rgb(90, 90, 90)',
+            logoColor:'rgb(150, 155, 255)',     // Change the color of logo
+            textColor:'#DADADA',                // Change the color of border line and text
+            borderColor:'#DADADA',
+            disablePostProgressAnimation: false,
+            progressBarColor: 'red',            // Change the color of the progress-bar {red, orange, and green}
+            action:'itech_droply_submission',   // Pass a custom JSON object to the server side along the files
+            successfulUpload: droply.successfulUpload,  // Event handler for successful file upload
+            failedUpload: droply.failedUpload,          // Event for unsuccessful file upload
+            fileDeleted: droply.fileDeleted             // File deleted even
+            dropBox:{
+              title:'Drop files here', 
+              height:100, 
+              fontSize:26
+            },
+            required:"false", // Force the uploader to be required as a field inside a form
+            stableUploadLbl: 'Everything going well so far!',
+            deleteConfirmLbl:'Are you sure you want to delete the file?',
+            maxUploadSize: 1024*1024*16,        // Define your server (max_post_size/upload_max_filesize), so the plugin can optimize chunk uploading process using this parameter
+        });
 ````
 This way you can initialize the plugin. Check the documentation and read more about options [options](http://www.itechflare.com/droply/docs/).
 
