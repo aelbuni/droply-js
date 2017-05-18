@@ -6,66 +6,6 @@
  * Developer: (mindsquare)
  */
 
-/*asas -> Base64 Encoder. It has been supported in newer version of Javascript. Need to be removed*/
-var Asas = function(m) {
-    var k, c, l, f, h, d, n, j, i, g, b, e, a;
-    k = function() {
-        var o, q, p;
-        c = m.pad || "";
-        l = m.dataBits;
-        f = m.codeBits;
-        h = m.keyString;
-        d = m.arrayData;
-        q = Math.max(l, f);
-        p = 0;
-        n = [];
-        for (o = 0; o < q; o += 1) {
-            n.push(p);
-            p += p + 1
-        }
-        i = p;
-        j = l / g(l, f)
-    };
-    g = function(p, o) {
-        var q;
-        while (o !== 0) {
-            q = o;
-            o = p % o;
-            p = q
-        }
-        return p
-    };
-    b = function(x, t, v, w) {
-        var s, u, r, o, q, z, p, y;
-        y = function(A) { if (!w) { p.push(h.charAt(A)) } else { if (d) { p.push(A) } else { p.push(String.fromCharCode(A)) } } };
-        q = 0;
-        z = 0;
-        p = [];
-        u = x.length;
-        for (s = 0; s < u; s += 1) {
-            z += t;
-            if (w) {
-                r = x.charAt(s);
-                o = h.indexOf(r);
-                if (r === c) { break } else { if (o < 0) { throw 'the character "' + r + '" is not a member of ' + h } }
-            } else { if (d) { o = x[s] } else { o = x.charCodeAt(s) } if ((o | i) !== i) { throw o + " is outside the range 0-" + i } }
-            q = (q << t) | o;
-            while (z >= v) {
-                z -= v;
-                y(q >> z);
-                q &= n[z]
-            }
-        }
-        if (!w && z > 0) { y(q << (v - z)); while (p.length % j > 0) { p.push(c) } }
-        return (d && w) ? p : p.join("")
-    };
-    e = function(o) { return b(o, l, f, false) };
-    a = function(o) { return b(o, f, l, true) };
-    this.encode = e;
-    this.decode = a;
-    k()
-};
-
 jQuery.noConflict();
 
 (function($) {
@@ -76,12 +16,6 @@ jQuery.noConflict();
         var mainNode = this;
         var gIndex = 0;
         var mimeImage;
-        var asas64 = new Asas({
-            dataBits: 8,
-            codeBits: 6,
-            keyString: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-            pad: '='
-        });
         // The module pattern
         var droply = {
             init: function() {
@@ -296,11 +230,11 @@ jQuery.noConflict();
                 var data = {
                     'droply-id': mainNode.attr('id'),
                     'command': 'delete',
-                    'droplyfn': asas64.encode(mainNode.find('#' + indx + '-fileName').text()),
+                    'droplyfn': window.btoa(mainNode.find('#' + indx + '-fileName').text()),
                     'fileIndx': indx,
                     'action': droply.config.action,
                     'nonce': droply.config.nonce,
-                    'raqmkh': asas64.encode(mainNode.find('#file-' + indx + '-' + mainNode.attr("id")).val())
+                    'raqmkh': window.btoa(mainNode.find('#file-' + indx + '-' + mainNode.attr("id")).val())
                 };
 
                 // Trigger delete event
