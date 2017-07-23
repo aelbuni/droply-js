@@ -95,24 +95,24 @@ Even if you test all this in different browsers I recommend to add some kind of 
 [<div style="text-align:center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/sample-usage-gallery-uploader.jpg"></div>](https://www.itechflare.com/droply/)
 [<div style="text-align:center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/screenshot.jpg"></div>](https://www.itechflare.com/droply/)
 
-##Changelog
+## Changelog
 
-###Update Version: 1.0
+### Update Version: 1.0
 - Initial release (Read docs for more detailed information)
 
-###Update Vesrion: 1.2
+### Update Vesrion: 1.2
 - Add disablePostProgressAnimation option to disable progress animation after upload is been completed.
 - Add timestamp to files before saving to avoid file replacement.
 - Increase performance.
 
-###Update Version: 1.3
+### Update Version: 1.3
 - Minor bugs for iOS devices support.
 - Refining CSS file
 - Emulate hover effect for mobile devices
 - Fixing the delete functionality after adding timestamp to saved files
 - Stop progress bar animation once the uploading finishes is been enabled by default.
 
-###Update Version: 1.4
+### Update Version: 1.4
 - Added three new options
 debug: Enable debugging will allow the plugin to print out log inside targetOutput element.
 limitNumberofFiles: Limit how many files should be uploaded on each single session.
@@ -123,28 +123,28 @@ targetOutput: Define where the plugin log should be printed
 - Fixed iOS 7&8 problem during uploading
 - Update documentation.
 
-###Update version 1.4.2:
+### Update version 1.4.2:
 - Made the styling be more robust and reliable accross browsers.
 - Fixed archive styling
 
-###Update version 1.4.3:
+### Update version 1.4.3:
 
 - Added label section right below the drag-n-drop box
 - Added label and label color options to the plugin
 - Simplify allow/disallow file types mechanism
 - Updated stylesheet and server side process file
 
-###Update version 1.5:
+### Update version 1.5:
 - Added preview button to enable verifying the file user has uploaded.
 - Added 'dragDrop' option to allow using regular upload button instead of the dragDrop featured box.
 - Filename format option in PHP file
 
-###Update version 1.5.6:
+### Update version 1.5.6:
 - Added loading extra effect to indicate that the image still processing
 - Added info-icon button for mobile users, so they can check if there was any error retrieved from the server.
 - Enhance plugin responsivity for mobile and tablet use
 
-###Update version 1.6.0:
+### Update version 1.6.0:
 - Added two new themes (Simplex, and super-simplex)
 - Integrate the themes and successfully assured its responsiveness
 - Embed all of the changes inside "style.css"
