@@ -37,7 +37,8 @@ Basic Javascript/Jquery knowledge is necesary to use this plugin: how to set par
 Dual licensed under the MIT and GPL licenses.
 Created by Abdulrhman Elbuni.
 
-##API
+## API
+
 ````javascript
 $("#company-files").droply(options);
 
@@ -78,14 +79,16 @@ $("#company-files").droply(
             deleteConfirmLbl:'Are you sure you want to delete the file?',
             maxUploadSize: 1024*1024*16,        // Define your server (max_post_size/upload_max_filesize), so the plugin can optimize chunk uploading process using this parameter
         });
-````
+```
+
 This way you can initialize the plugin. Check the documentation and read more about options [options](http://www.itechflare.com/droply/docs/).
 
-##Markup
+## Markup
 This is the simple html markup.
 ````html
 <div id="company-files"></div>
-````
+```
+
 Even if you test all this in different browsers I recommend to add some kind of link to a basic uploader, this is still a new feature on several platforms.
 
 ## Look and feel
