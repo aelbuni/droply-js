@@ -79,7 +79,7 @@ $("#company-files").droply(
             deleteConfirmLbl:'Are you sure you want to delete the file?',
             maxUploadSize: 1024*1024*16,        // Define your server (max_post_size/upload_max_filesize), so the plugin can optimize chunk uploading process using this parameter
         });
-```
+````
 
 This way you can initialize the plugin. Check the documentation and read more about options [options](http://www.itechflare.com/droply/docs/).
 
@@ -87,7 +87,7 @@ This way you can initialize the plugin. Check the documentation and read more ab
 This is the simple html markup.
 ````html
 <div id="company-files"></div>
-```
+````
 
 Even if you test all this in different browsers I recommend to add some kind of link to a basic uploader, this is still a new feature on several platforms.
 
