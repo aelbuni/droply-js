@@ -1,8 +1,9 @@
-#( JQuery / Javascript ) Multi File Uploader
+# ( JQuery / Javascript ) Multi File Uploader
 Droply is a responsive jQuery based plugin, that simplifies the developers task to setup a multi/single file uploader component. It is highly configurable and easy to install. This plugin comes with a configurable server side PHP script that should be clear enough for developers to customize. It is important to know that there is a list of permitted file (MIME) types, which can be configured conjuctively on both server/client side to filter out any type of harmful or undesired file types.
 
-[<p align="center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/banner.png"></p>](https://www.itechflare.com/droply/)
-[<p align="center"><img src="https://github.com/aelbuni/Droply/blob/master/sample-images/droply-banner.jpg"></p>](https://www.itechflare.com/droply/)
+## (Contribution) Do you want to help improving this tool
+
+Droply needs more developers to contribute to get the plugin to the next level. Please check the roadmap, and contact me if you are interested to be part of the team.
 
 ## Documentation :fist:
 Detailed Documentation: http://www.itechflare.com/droply/docs/
@@ -10,7 +11,7 @@ Detailed Documentation: http://www.itechflare.com/droply/docs/
 ## Demo :sparkles:
 Droply in Action: http://www.itechflare.com/droply/
 
-### Features
+### Current Features
 - Responsive multi-file uploader
 - Easily filter the file type allowed
 - Server side aware jQuery plugin
@@ -26,6 +27,13 @@ Droply in Action: http://www.itechflare.com/droply/
 - Upload the wrong file? Droply can delete what your mistaken file.
 - Limit your users to a specific file type, size limit, number of files, image dimensions, or write your own custom validator.
 
+# Roadmap
+
+- (1.6.1) 
+  - Convert to native Javascript plugin (Remove jQuery Dependency)
+- (1.6.1.1) 
+  - Queuing file uploads and include flexible trottling mechanism (config) for the number of concurrent uploads the plugins can execute.
+- TBD
 ## How can Droply fit into your PHP Project ?
 
 Droply provides a simple backend PHP processing class that enable you to integrate this plugin to any PHP framework easily.
