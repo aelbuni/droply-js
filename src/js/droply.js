@@ -2,7 +2,7 @@
  * jQuery droply Plugin; v2017FEB12
  * https://www.itechflare.com/
  * Copyright (c) 2015-2017 iTechFlare; Licensed: GPL + MIT
- * Version : v1.7.1
+ * Version : v1.6.0.2
  * Developer: (mindsquare)
  */
 
@@ -60,6 +60,7 @@ jQuery.noConflict();
                     backgroundColor: '',
                     logoColor: 'rgb(150, 155, 255)',
                     textColor: '#DADADA',
+					hideIcons: false,
                     borderColor: '#DADADA',
                     labelColor: 'rgb(90, 90, 90)',
                     progressBarColor: 'orange',
@@ -279,6 +280,7 @@ jQuery.noConflict();
                     '</a>';
 
                 // Theme-1
+
                 var uploadListItemDefault =
                     '<div id="uploadItem-' + mainNode.attr("id") + '-' + indx + '" class="droply-default-theme">' +
                     '<div class="droply-oval">' +
@@ -294,7 +296,7 @@ jQuery.noConflict();
                     '<div class="droply-list-div noselect" style="background-color:' + droply.config.backgroundColor + '" >' + hiddenInput +
                     '<div>' +
                     '<div class="droply-list-icon droply-left">' +
-                    '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' +
+					(droply.config.hideIcons ? "" : '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' + indx + '">') +
                     '</div>' +
                     '<div class="progress-container droply-right">' +
                     '<div id="progress-style-' + mainNode.attr("id") + '-' + indx + '" class="droply-meter ' + droply.config.progressBarColor + ' droply-right">' +
@@ -304,10 +306,10 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '">' +
-                    '<span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span>' +
-                    '</a>&nbsp;' +
-                    previewElement +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '">') +
+					(droply.config.hideIcons ? "" : '<span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span>') +
+                    (droply.config.hideIcons ? "" : '</a>&nbsp;') +
+                    (droply.config.hideIcons ? "" : previewElement) +
                     '</li>' +
                     '</ul>' +
                     '</div>' +
@@ -330,9 +332,9 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;' +
-                    previewElement + '&nbsp;' +
-                    infoIconPlain +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;') +
+					(droply.config.hideIcons ? "" : previewElement + '&nbsp;') +
+					(droply.config.hideIcons ? "" : infoIconPlain) +					
                     '<div class="droply-oval">' +
                     '<span class="droply-ready droply-icon droply-icon-plus"></span>' +
                     '<span class="droply-loading droply-icon droply-icon-spinner" style="display: none;"></span>' +
@@ -345,7 +347,7 @@ jQuery.noConflict();
                     '</ul>' +
                     '</div>' +
                     '<div class="droply-list-icon droply-right">' +
-                    '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' +
+					(droply.config.hideIcons ? "" : '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>') +	
                     '</div>' +
                     '</div>' +
                     '</div>' + infoForm +
@@ -365,9 +367,9 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;' +
-                    previewElement +
-                    '<a class="info-icon" index="' + indx + '" title="Information Button"><span class="droply-icon droply-icon-info-large"></span></a>' +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;') +
+					(droply.config.hideIcons ? "" : previewElement) +
+                    (droply.config.hideIcons ? "" : '<a class="info-icon" index="' + indx + '" title="Information Button"><span class="droply-icon droply-icon-info-large"></span></a>') +
                     '<div class="droply-oval">' +
                     '<span class="droply-ready droply-icon droply-icon-plus"></span>' +
                     '<span class="droply-loading droply-icon droply-icon-spinner" style="display: none;"></span>' +
