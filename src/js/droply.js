@@ -652,7 +652,7 @@ jQuery.noConflict();
                         try {
                             var resp = JSON.parse(this.response);
 
-                            if (resp.status == "true") {
+                            if (resp.status == "true" || resp.status == true) {
                                 if (resp.attid) {
                                     mainNode.find('#file-' + this.index + '-' + mainNode.attr("id")).val(resp.attid);
                                 }
@@ -828,7 +828,7 @@ jQuery.noConflict();
                             // Check if response is going smooth, and otherwise just terminate
                             var resp = JSON.parse(this.response);
 
-                            if (this.range_end !== this.file_size && resp.status == "true") {
+                            if (this.range_end !== this.file_size && ( resp.status == "true" || resp.status == true)) {
                                 // Update our ranges
                                 this.range_start = this.range_end;
                                 this.range_end = this.range_start + this.chunk_size;
@@ -841,15 +841,15 @@ jQuery.noConflict();
                             }
 
                             // Stop progress animation if there was an error detected
-                            if (resp.status != "true") {
+                            if (resp.status != "true" || resp.status == true) {
                                 mainNode.find('#progress-style-' + mainNode.attr("id") + '-' + this.index).addClass('droply-nostripes');
                             }
 
                             // Enter this section either when there is an error or the file has been uploaded
-                            if ((this.range_end === this.file_size) || resp.status != "true") {
+                            if ((this.range_end === this.file_size) || (resp.status == "false" || resp.status == false)) {
                                 // This will be executed once, only at the end of successful chunk upload
 
-                                if (resp.status == "true") {
+                                if (resp.status == "true" || resp.status == true) {
                                     if (resp.attid) {
                                         mainNode.find('#file-' + this.index + '-' + mainNode.attr("id")).val(resp.attid);
                                     }
@@ -889,7 +889,7 @@ jQuery.noConflict();
                                 // Read if there was an error in the middle of chunk upload process
                                 // This line will be repeatedly called except when the upload is finished
 
-                                if (resp.status == "false") {
+                                if (resp.status == "false" || resp.status == false) {
                                     droply.tagItemSuccess(this.index, false, resp.error);
 
                                     // Trigger a failed upload event
