@@ -157,3 +157,6 @@ targetOutput: Define where the plugin log should be printed
 - Integrate the themes and successfully assured its responsiveness
 - Embed all of the changes inside "style.css"
 - Added new configuration called "theme"
+
+## Update version 1.6.0.1:
+- Change any and all cases where the JSON response uses a text boolean to accept true booleans as well
