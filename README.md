@@ -160,3 +160,6 @@ targetOutput: Define where the plugin log should be printed
 
 ### Update version 1.6.0.1:
 - Change any and all cases where the JSON response uses a text boolean to accept true booleans as well
+
+### Update version 1.6.0.2
+- Change to add new option hideIcons which will hide all icons other than status of upload
