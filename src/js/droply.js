@@ -2,7 +2,7 @@
  * jQuery droply Plugin; v2017FEB12
  * https://www.itechflare.com/
  * Copyright (c) 2015-2017 iTechFlare; Licensed: GPL + MIT
- * Version : v1.6.0.2
+ * Version : v1.6.0.3
  * Developer: (mindsquare)
  */
 
@@ -16,6 +16,7 @@ jQuery.noConflict();
         var mainNode = this;
         var gIndex = 0;
         var mimeImage;
+		var uploading = 0;
         // The module pattern
         var droply = {
             init: function() {
@@ -67,6 +68,7 @@ jQuery.noConflict();
                     action: 'itech_droply_submission',
                     beforeSubmit: droply.beforeSubmit,
                     successfulUpload: droply.successfulUpload,
+					uploadsFinished: droply.uploadsFinished,
                     failedUpload: droply.failedUpload,
                     fileDeleted: droply.fileDeleted,
                     injectPostData: droply.injectPostData
@@ -137,6 +139,8 @@ jQuery.noConflict();
             },
             successfulUpload: function(result) { // Handle event
             },
+			uploadsFinished: function(result){ //Handle Event
+			},
             failedUpload: function(result) { // Handle event
             },
             injectPostData: function() { // Handle event
@@ -159,6 +163,9 @@ jQuery.noConflict();
                 var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
                 var is_safari = navigator.userAgent.indexOf("Safari") > -1;
                 if ((is_chrome) && (is_safari)) { is_safari = false; }
+				
+				// Keep track of how many files have been provided to be uploaded 
+				uploading = uploading + 1;
 
                 //check whether browser fully supports all File API
                 if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -510,7 +517,7 @@ jQuery.noConflict();
             },
             tagItemSuccess: function(indx, success, msg) {
                 $('#uploadItem-' + mainNode.attr("id") + '-' + indx).find('.droply-loading').hide();
-
+					
                 if (droply.config.devDebug == true) {
                     console.log('Success tag = [' + success + ']');
                 }
@@ -651,6 +658,10 @@ jQuery.noConflict();
                         // Disable loading
                         $('#uploadItem-' + mainNode.attr("id") + '-' + this.index).find('.droply-loading').css('display', 'block');
                         $('#uploadItem-' + mainNode.attr("id") + '-' + this.index).find('.droply-ready').hide();
+						
+						/* Reduce the number of uploads pending */
+						uploading = uploading - 1;
+						
                         try {
                             var resp = JSON.parse(this.response);
 
@@ -676,7 +687,8 @@ jQuery.noConflict();
                                     mainNode.find('#progress-style-' + mainNode.attr("id") + '-' + this.index).addClass('droply-nostripes');
                                 }
                                 // Trigger a successful upload event
-                                droply.config.successfulUpload(resp);
+                                droply.config.successfulUpload(resp);								
+								
                             } else {
                                 droply.tagItemSuccess(this.index, false, resp.error);
 
@@ -693,6 +705,11 @@ jQuery.noConflict();
                             // Uploading failed
                             droply.tagItemSuccess(this.index, false, resp.msg);
                         }
+						
+						// All Uploads Finished, Trigger Event
+						if(uploading==0){
+							droply.config.uploadsFinished(resp);
+						}
                     }
                 };
 
