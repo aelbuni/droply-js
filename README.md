@@ -163,3 +163,9 @@ targetOutput: Define where the plugin log should be printed
 
 ### Update version 1.6.0.2
 - Change to add new option hideIcons which will hide all icons other than status of upload
+
+### Update version v1.6.0.3
+- New Option 'uploadsFinished' which will fire when all uploads have completed. fails or succeeded. 
+
+
+
