@@ -5,7 +5,7 @@ Droply is a responsive jQuery based plugin, that simplifies the developers task 
 
 Droply needs more developers to contribute to get the plugin to the next level. Please check the roadmap, and contact me if you are interested to be part of the team.
 
-## Documentation :fist:
+## Documentation
 Detailed Documentation: http://www.itechflare.com/droply/docs/
 
 ## Demo :sparkles:
