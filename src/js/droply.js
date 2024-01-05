@@ -2,7 +2,7 @@
  * jQuery droply Plugin; v2017FEB12
  * https://www.itechflare.com/
  * Copyright (c) 2015-2017 iTechFlare; Licensed: GPL + MIT
- * Version : v1.7.1
+ * Version : v1.6.0.3
  * Developer: (mindsquare)
  */
 
@@ -16,6 +16,7 @@ jQuery.noConflict();
         var mainNode = this;
         var gIndex = 0;
         var mimeImage;
+		var uploading = 0;
         // The module pattern
         var droply = {
             init: function() {
@@ -60,12 +61,14 @@ jQuery.noConflict();
                     backgroundColor: '',
                     logoColor: 'rgb(150, 155, 255)',
                     textColor: '#DADADA',
+					hideIcons: false,
                     borderColor: '#DADADA',
                     labelColor: 'rgb(90, 90, 90)',
                     progressBarColor: 'orange',
                     action: 'itech_droply_submission',
                     beforeSubmit: droply.beforeSubmit,
                     successfulUpload: droply.successfulUpload,
+					uploadsFinished: droply.uploadsFinished,
                     failedUpload: droply.failedUpload,
                     fileDeleted: droply.fileDeleted,
                     injectPostData: droply.injectPostData
@@ -136,6 +139,8 @@ jQuery.noConflict();
             },
             successfulUpload: function(result) { // Handle event
             },
+			uploadsFinished: function(result){ //Handle Event
+			},
             failedUpload: function(result) { // Handle event
             },
             injectPostData: function() { // Handle event
@@ -158,6 +163,9 @@ jQuery.noConflict();
                 var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
                 var is_safari = navigator.userAgent.indexOf("Safari") > -1;
                 if ((is_chrome) && (is_safari)) { is_safari = false; }
+				
+				// Keep track of how many files have been provided to be uploaded 
+				uploading = uploading + 1;
 
                 //check whether browser fully supports all File API
                 if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -279,6 +287,7 @@ jQuery.noConflict();
                     '</a>';
 
                 // Theme-1
+
                 var uploadListItemDefault =
                     '<div id="uploadItem-' + mainNode.attr("id") + '-' + indx + '" class="droply-default-theme">' +
                     '<div class="droply-oval">' +
@@ -294,7 +303,7 @@ jQuery.noConflict();
                     '<div class="droply-list-div noselect" style="background-color:' + droply.config.backgroundColor + '" >' + hiddenInput +
                     '<div>' +
                     '<div class="droply-list-icon droply-left">' +
-                    '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' +
+					(droply.config.hideIcons ? "" : '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' + indx + '">') +
                     '</div>' +
                     '<div class="progress-container droply-right">' +
                     '<div id="progress-style-' + mainNode.attr("id") + '-' + indx + '" class="droply-meter ' + droply.config.progressBarColor + ' droply-right">' +
@@ -304,10 +313,10 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '">' +
-                    '<span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span>' +
-                    '</a>&nbsp;' +
-                    previewElement +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '">') +
+					(droply.config.hideIcons ? "" : '<span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span>') +
+                    (droply.config.hideIcons ? "" : '</a>&nbsp;') +
+                    (droply.config.hideIcons ? "" : previewElement) +
                     '</li>' +
                     '</ul>' +
                     '</div>' +
@@ -330,9 +339,9 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;' +
-                    previewElement + '&nbsp;' +
-                    infoIconPlain +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;') +
+					(droply.config.hideIcons ? "" : previewElement + '&nbsp;') +
+					(droply.config.hideIcons ? "" : infoIconPlain) +					
                     '<div class="droply-oval">' +
                     '<span class="droply-ready droply-icon droply-icon-plus"></span>' +
                     '<span class="droply-loading droply-icon droply-icon-spinner" style="display: none;"></span>' +
@@ -345,7 +354,7 @@ jQuery.noConflict();
                     '</ul>' +
                     '</div>' +
                     '<div class="droply-list-icon droply-right">' +
-                    '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>' +
+					(droply.config.hideIcons ? "" : '<span id="mimePicture" class="droply-icon" style="font-size:40px"></span>') +	
                     '</div>' +
                     '</div>' +
                     '</div>' + infoForm +
@@ -365,9 +374,9 @@ jQuery.noConflict();
                     '<div class="droply-list-menu droply-right">' +
                     '<ul>' +
                     '<li>' +
-                    '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;' +
-                    previewElement +
-                    '<a class="info-icon" index="' + indx + '" title="Information Button"><span class="droply-icon droply-icon-info-large"></span></a>' +
+					(droply.config.hideIcons ? "" : '<a class="droply-delete" id="' + indx + '"><span class="droply-icon droply-icon-remove" title="' + droply.config.deleteBtnLbl + '"></span></a>&nbsp;') +
+					(droply.config.hideIcons ? "" : previewElement) +
+                    (droply.config.hideIcons ? "" : '<a class="info-icon" index="' + indx + '" title="Information Button"><span class="droply-icon droply-icon-info-large"></span></a>') +
                     '<div class="droply-oval">' +
                     '<span class="droply-ready droply-icon droply-icon-plus"></span>' +
                     '<span class="droply-loading droply-icon droply-icon-spinner" style="display: none;"></span>' +
@@ -508,7 +517,7 @@ jQuery.noConflict();
             },
             tagItemSuccess: function(indx, success, msg) {
                 $('#uploadItem-' + mainNode.attr("id") + '-' + indx).find('.droply-loading').hide();
-
+					
                 if (droply.config.devDebug == true) {
                     console.log('Success tag = [' + success + ']');
                 }
@@ -649,10 +658,14 @@ jQuery.noConflict();
                         // Disable loading
                         $('#uploadItem-' + mainNode.attr("id") + '-' + this.index).find('.droply-loading').css('display', 'block');
                         $('#uploadItem-' + mainNode.attr("id") + '-' + this.index).find('.droply-ready').hide();
+						
+						/* Reduce the number of uploads pending */
+						uploading = uploading - 1;
+						
                         try {
                             var resp = JSON.parse(this.response);
 
-                            if (resp.status == "true") {
+                            if (resp.status == "true" || resp.status == true) {
                                 if (resp.attid) {
                                     mainNode.find('#file-' + this.index + '-' + mainNode.attr("id")).val(resp.attid);
                                 }
@@ -674,7 +687,8 @@ jQuery.noConflict();
                                     mainNode.find('#progress-style-' + mainNode.attr("id") + '-' + this.index).addClass('droply-nostripes');
                                 }
                                 // Trigger a successful upload event
-                                droply.config.successfulUpload(resp);
+                                droply.config.successfulUpload(resp);								
+								
                             } else {
                                 droply.tagItemSuccess(this.index, false, resp.error);
 
@@ -691,6 +705,11 @@ jQuery.noConflict();
                             // Uploading failed
                             droply.tagItemSuccess(this.index, false, resp.msg);
                         }
+						
+						// All Uploads Finished, Trigger Event
+						if(uploading==0){
+							droply.config.uploadsFinished(resp);
+						}
                     }
                 };
 
@@ -828,7 +847,7 @@ jQuery.noConflict();
                             // Check if response is going smooth, and otherwise just terminate
                             var resp = JSON.parse(this.response);
 
-                            if (this.range_end !== this.file_size && resp.status == "true") {
+                            if (this.range_end !== this.file_size && ( resp.status == "true" || resp.status == true)) {
                                 // Update our ranges
                                 this.range_start = this.range_end;
                                 this.range_end = this.range_start + this.chunk_size;
@@ -841,15 +860,15 @@ jQuery.noConflict();
                             }
 
                             // Stop progress animation if there was an error detected
-                            if (resp.status != "true") {
+                            if (resp.status != "true" || resp.status == true) {
                                 mainNode.find('#progress-style-' + mainNode.attr("id") + '-' + this.index).addClass('droply-nostripes');
                             }
 
                             // Enter this section either when there is an error or the file has been uploaded
-                            if ((this.range_end === this.file_size) || resp.status != "true") {
+                            if ((this.range_end === this.file_size) || (resp.status == "false" || resp.status == false)) {
                                 // This will be executed once, only at the end of successful chunk upload
 
-                                if (resp.status == "true") {
+                                if (resp.status == "true" || resp.status == true) {
                                     if (resp.attid) {
                                         mainNode.find('#file-' + this.index + '-' + mainNode.attr("id")).val(resp.attid);
                                     }
@@ -889,7 +908,7 @@ jQuery.noConflict();
                                 // Read if there was an error in the middle of chunk upload process
                                 // This line will be repeatedly called except when the upload is finished
 
-                                if (resp.status == "false") {
+                                if (resp.status == "false" || resp.status == false) {
                                     droply.tagItemSuccess(this.index, false, resp.error);
 
                                     // Trigger a failed upload event

@@ -157,3 +157,15 @@ targetOutput: Define where the plugin log should be printed
 - Integrate the themes and successfully assured its responsiveness
 - Embed all of the changes inside "style.css"
 - Added new configuration called "theme"
+
+### Update version 1.6.0.1:
+- Change any and all cases where the JSON response uses a text boolean to accept true booleans as well
+
+### Update version 1.6.0.2
+- Change to add new option hideIcons which will hide all icons other than status of upload
+
+### Update version v1.6.0.3
+- New Option 'uploadsFinished' which will fire when all uploads have completed. fails or succeeded. 
+
+
+
